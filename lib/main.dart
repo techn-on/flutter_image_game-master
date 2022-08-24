@@ -69,6 +69,8 @@ class homePageDeckButton1 extends StatelessWidget {
 
   String cardCategory;
 
+  get miniTitle => null;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -88,6 +90,7 @@ class homePageDeckButton1 extends StatelessWidget {
                           MaterialPageRoute(
                               builder: (context) => CardCategoryLevel(
                                     cardCategory: cardCategory,
+                                    miniTitle: miniTitle,
                                   )),
                         );
                       },
