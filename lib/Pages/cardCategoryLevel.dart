@@ -4,22 +4,15 @@ import 'package:flutter_image_game/Pages/GameSetPage.dart';
 
 class CardCategoryLevel extends StatefulWidget {
   const CardCategoryLevel(
-      {Key? key,
-      required this.cardCategory,
-      required miniTitle,
-      required miniTitle,
-      required miniTitle,
-      required miniTitle,
-      required miniTitle,
-      required miniTitle,
-      required this.miniTitle})
+      {Key? key, required this.cardCategory, required this.miniTitle})
       : super(key: key);
 
   final String cardCategory;
   final String miniTitle;
 
-  State<CardCategoryLevel> createState() => _CardCategoryLevelState(
-      cardCategory: this.cardCategory, miniTitle: this.miniTitle);
+  @override
+  State<CardCategoryLevel> createState() =>
+      _CardCategoryLevelState(cardCategory: cardCategory, miniTitle: miniTitle);
 }
 
 class _CardCategoryLevelState extends State<CardCategoryLevel> {
@@ -32,33 +25,33 @@ class _CardCategoryLevelState extends State<CardCategoryLevel> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff1E1E23),
+      backgroundColor: const Color(0xff1E1E23),
       body: Center(
         child: Column(
           children: [
             Padding(
-                padding: EdgeInsets.only(top: 113),
+                padding: const EdgeInsets.only(top: 113),
                 child: Image(image: AssetImage(miniTitle))),
             Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   CardCategoryButton(
-                    cardCategory: this.cardCategory,
+                    cardCategory: cardCategory,
                     buttonIndex: '1',
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 30,
                   ),
                   CardCategoryButton(
-                    cardCategory: this.cardCategory,
+                    cardCategory: cardCategory,
                     buttonIndex: '2',
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 30,
                   ),
                   CardCategoryButton(
-                    cardCategory: this.cardCategory,
+                    cardCategory: cardCategory,
                     buttonIndex: '3',
                   ),
                 ])
@@ -91,7 +84,7 @@ class CardCategoryButton extends StatelessWidget {
               MaterialPageRoute(
                   builder: (context) => GameSetPage(
                         cardCategory: cardCategory,
-                        deckIndex: this.deckIndex,
+                        deckIndex: deckIndex,
                       )),
             );
           },
@@ -103,8 +96,9 @@ class CardCategoryButton extends StatelessWidget {
                 child: Stack(
                   children: [
                     Ink.image(
-                        image:
-                            AssetImage('assets/images/cardCategoryLevel.png'),
+                        image: const AssetImage(
+                            'assets/images/cardCategoryLevel.png'),
+                        fit: BoxFit.fill,
                         child: InkWell(
                           onTap: () {
                             Navigator.push(
@@ -112,12 +106,11 @@ class CardCategoryButton extends StatelessWidget {
                               MaterialPageRoute(
                                   builder: (context) => GameSetPage(
                                         cardCategory: cardCategory,
-                                        deckIndex: this.deckIndex,
+                                        deckIndex: deckIndex,
                                       )),
                             );
                           },
-                        ),
-                        fit: BoxFit.fill),
+                        )),
                     Center(
                       child: Text(
                         '$cardCategory-$buttonIndex',
