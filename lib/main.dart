@@ -90,7 +90,6 @@ class homePageDeckButton1 extends StatelessWidget {
                           MaterialPageRoute(
                               builder: (context) => CardCategoryLevel(
                                     cardCategory: cardCategory,
-                                    miniTitle: miniTitle,
                                   )),
                         );
                       },
